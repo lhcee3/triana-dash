@@ -14,6 +14,7 @@ import {
   ShieldAlert,
   History,
   Settings,
+  Contact,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -23,6 +24,7 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 const menuItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/map', label: 'Interactive Map', icon: Map },
+  { href: '/digital-id', label: 'Digital ID', icon: Contact },
   { href: '/e-fir', label: 'E-FIR Generation', icon: FileText },
   { href: '/incidents', label: 'Incident Reporting', icon: ShieldAlert },
   { href: '/alerts', label: 'Alert History', icon: History, badge: '3' },
@@ -47,7 +49,7 @@ export default function AppSidebar() {
               strokeLinejoin="round"
             >
               <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10z" />
-              <path d="M12 16.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z" />
+              <path d="M12 16.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5-4.5z" />
               <path d="M12 2v2.5" />
               <path d="M12 19.5V22" />
               <path d="M22 12h-2.5" />

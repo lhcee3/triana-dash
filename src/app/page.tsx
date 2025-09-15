@@ -1,8 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Activity, Users, ShieldAlert, BarChart3 } from "lucide-react";
+import { Activity, Users, ShieldAlert, BarChart3, Search, Layers, User, Siren, Video, Checkbox } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function Home() {
   return (
@@ -60,17 +63,54 @@ export default function Home() {
         <Card className="col-span-4">
           <CardHeader>
             <CardTitle className="font-headline">Tourist Cluster Heatmap</CardTitle>
-            <CardDescription>Visualization of tourist density across the city.</CardDescription>
+            <CardDescription>Real-time visualization of tourist density and high-risk zones.</CardDescription>
           </CardHeader>
           <CardContent className="pl-2">
-            <Image
-              src="https://picsum.photos/seed/heatmap/800/400"
-              alt="Heatmap of tourist clusters"
-              width={800}
-              height={400}
-              className="rounded-md"
-              data-ai-hint="map city"
-            />
+            <div className="h-[450px] w-full relative">
+              <Image
+                src="https://picsum.photos/seed/heatmap/1200/800"
+                alt="Heatmap of tourist clusters"
+                fill
+                className="rounded-md object-cover"
+                data-ai-hint="map city"
+              />
+              <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+
+              <Card className="absolute top-4 right-4 w-72 shadow-2xl bg-background/80 backdrop-blur-sm">
+                <CardHeader className="p-4">
+                  <CardTitle className="font-headline text-base flex items-center gap-2">
+                    <Layers />
+                    Map Layers
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-4 pt-0 space-y-3">
+                  <div className="space-y-2">
+                    <Label className="text-xs">Overlays</Label>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox id="tourists" defaultChecked />
+                      <User className="h-4 w-4 text-primary" />
+                      <label htmlFor="tourists" className="text-sm font-medium leading-none">
+                        Tourist Locations
+                      </label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox id="risks" defaultChecked />
+                      <Siren className="h-4 w-4 text-destructive" />
+                      <label htmlFor="risks" className="text-sm font-medium leading-none">
+                        High-Risk Zones
+                      </label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox id="cameras" />
+                      <Video className="h-4 w-4 text-accent" />
+                      <label htmlFor="cameras" className="text-sm font-medium leading-none">
+                        CCTV Cameras
+                      </label>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </CardContent>
         </Card>
         <Card className="col-span-4 lg:col-span-3">
