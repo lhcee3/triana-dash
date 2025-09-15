@@ -56,7 +56,7 @@ export default function AppSidebar() {
               <path d="M4.5 12H2" />
             </svg>
           </div>
-          <h1 className="font-headline text-xl font-semibold">GuardianEye</h1>
+          <h1 className="font-headline text-xl font-semibold">Triana Guardian Eye</h1>
         </div>
       </SidebarHeader>
       <SidebarMenu className="flex-1">

@@ -7,7 +7,7 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'GuardianEye',
+  title: 'Triana Guardian Eye',
   description: 'Smart Tourist Safety Monitoring & Incident Response System',
 };
 
