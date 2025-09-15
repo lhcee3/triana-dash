@@ -16,53 +16,65 @@ const alerts = [
 
 export default function AlertsPage() {
   return (
-    <div className="flex-1 space-y-8 p-4 md:p-8">
+    <div className="flex-1 space-y-8 p-4 md:p-8 bg-black text-teal-100 min-h-screen">
       <div className="flex items-center justify-between space-y-2">
         <div>
-          <h1 className="text-3xl font-headline font-bold tracking-tight">Alert History</h1>
-          <p className="text-muted-foreground">An organized view of all system-generated alerts.</p>
+          <h1 className="text-3xl font-headline font-bold tracking-tight text-teal-100">Alert History</h1>
+          <p className="text-teal-400">An organized view of all system-generated alerts.</p>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline">
+            <Button variant="outline" className="border-teal-600 text-teal-200 hover:bg-teal-950/50">
               <ListFilter className="mr-2 h-4 w-4" />
               Filter Alerts
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Filter by Status</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuCheckboxItem checked>Urgent</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem checked>Investigating</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem>Acknowledged</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem>Resolved</DropdownMenuCheckboxItem>
+          <DropdownMenuContent align="end" className="w-56 bg-black/95 border-teal-600 backdrop-blur-sm">
+            <DropdownMenuLabel className="text-teal-200">Filter by Status</DropdownMenuLabel>
+            <DropdownMenuSeparator className="bg-teal-700" />
+            <DropdownMenuCheckboxItem checked className="text-teal-100 focus:bg-teal-950/50">Urgent</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem checked className="text-teal-100 focus:bg-teal-950/50">Investigating</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem className="text-teal-100 focus:bg-teal-950/50">Acknowledged</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem className="text-teal-100 focus:bg-teal-950/50">Resolved</DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
 
-      <Card>
+      <Card className="bg-black/90 border-teal-600 backdrop-blur-sm">
         <CardContent className="pt-6">
             <Table>
                 <TableHeader>
-                    <TableRow>
-                        <TableHead>Alert ID</TableHead>
-                        <TableHead>Type</TableHead>
-                        <TableHead>Tourist ID</TableHead>
-                        <TableHead>Location</TableHead>
-                        <TableHead>Timestamp</TableHead>
-                        <TableHead>Status</TableHead>
+                    <TableRow className="border-teal-700">
+                        <TableHead className="text-teal-300">Alert ID</TableHead>
+                        <TableHead className="text-teal-300">Type</TableHead>
+                        <TableHead className="text-teal-300">Tourist ID</TableHead>
+                        <TableHead className="text-teal-300">Location</TableHead>
+                        <TableHead className="text-teal-300">Timestamp</TableHead>
+                        <TableHead className="text-teal-300">Status</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {alerts.map((alert) => (
-                        <TableRow key={alert.id} className={alert.status === 'Urgent' ? 'bg-destructive/10 hover:bg-destructive/20' : ''}>
-                            <TableCell className="font-medium">{alert.id}</TableCell>
-                            <TableCell>{alert.type}</TableCell>
-                            <TableCell>{alert.touristId}</TableCell>
-                            <TableCell>{alert.location}</TableCell>
-                            <TableCell>{alert.timestamp}</TableCell>
+                        <TableRow 
+                            key={alert.id} 
+                            className={alert.status === 'Urgent' 
+                                ? 'bg-red-950/30 hover:bg-red-950/50 border-red-700' 
+                                : 'border-teal-800 hover:bg-teal-950/30'
+                            }
+                        >
+                            <TableCell className="font-medium text-teal-100">{alert.id}</TableCell>
+                            <TableCell className="text-teal-200">{alert.type}</TableCell>
+                            <TableCell className="text-teal-200">{alert.touristId}</TableCell>
+                            <TableCell className="text-teal-200">{alert.location}</TableCell>
+                            <TableCell className="text-teal-200">{alert.timestamp}</TableCell>
                             <TableCell>
-                                <Badge variant={alert.status === 'Urgent' ? 'destructive' : alert.status === 'Resolved' ? 'default' : 'secondary'}>
+                                <Badge variant={alert.status === 'Urgent' ? 'destructive' : alert.status === 'Resolved' ? 'default' : 'secondary'}
+                                       className={
+                                           alert.status === 'Urgent' ? 'bg-red-600 text-white' :
+                                           alert.status === 'Resolved' ? 'bg-green-600 text-white' :
+                                           alert.status === 'Investigating' ? 'bg-yellow-600 text-white' :
+                                           'bg-teal-600 text-white'
+                                       }>
                                     {alert.status}
                                 </Badge>
                             </TableCell>

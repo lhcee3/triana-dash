@@ -54,10 +54,10 @@ export default function EFIRForm() {
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
-      <Card>
+      <Card className="bg-black/90 border-teal-600 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="font-headline">Incident Report</CardTitle>
-          <CardDescription>
+          <CardTitle className="font-headline text-teal-100">Incident Report</CardTitle>
+          <CardDescription className="text-teal-400">
             Paste the initial report text from any source. The AI will extract the relevant information.
           </CardDescription>
         </CardHeader>
@@ -69,11 +69,11 @@ export default function EFIRForm() {
                 name="reportText"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Report Text</FormLabel>
+                    <FormLabel className="text-teal-200">Report Text</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="e.g., 'My son, John Doe, 24 years old, went missing yesterday from our home at 123 Main St. He was last seen wearing a blue jacket. He has a scar on his left cheek. My contact is 555-1234...'"
-                        className="min-h-[300px] resize-y"
+                        className="min-h-[300px] resize-y bg-teal-950/50 border-teal-600 text-teal-100"
                         {...field}
                       />
                     </FormControl>
@@ -81,7 +81,7 @@ export default function EFIRForm() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading}>
+              <Button type="submit" disabled={isLoading} className="bg-teal-600 hover:bg-teal-500 text-white">
                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Generate E-FIR
               </Button>
@@ -90,56 +90,56 @@ export default function EFIRForm() {
         </CardContent>
       </Card>
       
-      <Card>
+      <Card className="bg-black/90 border-teal-600 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="font-headline">Generated E-FIR Details</CardTitle>
-          <CardDescription>
+          <CardTitle className="font-headline text-teal-100">Generated E-FIR Details</CardTitle>
+          <CardDescription className="text-teal-400">
             Review the automatically generated First Information Report.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4">{/* Content continues below */}
           {isLoading && (
             <div className="flex h-[380px] items-center justify-center p-8">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <Loader2 className="h-8 w-8 animate-spin text-teal-400" />
             </div>
           )}
           {firDetails && (
             <div className="space-y-3 text-sm">
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-muted-foreground">Missing Person:</span>
-                    <span className="col-span-2">{firDetails.missingPersonName}</span>
+                    <span className="font-semibold text-teal-300">Missing Person:</span>
+                    <span className="col-span-2 text-teal-100">{firDetails.missingPersonName}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-muted-foreground">Age:</span>
-                    <span className="col-span-2">{firDetails.age}</span>
+                    <span className="font-semibold text-teal-300">Age:</span>
+                    <span className="col-span-2 text-teal-100">{firDetails.age}</span>
                 </div>
                  <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-muted-foreground">Gender:</span>
-                    <span className="col-span-2">{firDetails.gender}</span>
+                    <span className="font-semibold text-teal-300">Gender:</span>
+                    <span className="col-span-2 text-teal-100">{firDetails.gender}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-muted-foreground">Last Seen Address:</span>
-                    <span className="col-span-2">{firDetails.addressLastSeen}</span>
+                    <span className="font-semibold text-teal-300">Last Seen Address:</span>
+                    <span className="col-span-2 text-teal-100">{firDetails.addressLastSeen}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-muted-foreground">Identifying Marks:</span>
-                    <span className="col-span-2">{firDetails.identifyingMarks}</span>
+                    <span className="font-semibold text-teal-300">Identifying Marks:</span>
+                    <span className="col-span-2 text-teal-100">{firDetails.identifyingMarks}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-muted-foreground">Contact Info:</span>
-                    <span className="col-span-2">{firDetails.contactInformation}</span>
+                    <span className="font-semibold text-teal-300">Contact Info:</span>
+                    <span className="col-span-2 text-teal-100">{firDetails.contactInformation}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                    <span className="font-semibold text-muted-foreground">Additional Details:</span>
-                    <p className="col-span-2 leading-relaxed">{firDetails.additionalDetails}</p>
+                    <span className="font-semibold text-teal-300">Additional Details:</span>
+                    <p className="col-span-2 leading-relaxed text-teal-100">{firDetails.additionalDetails}</p>
                 </div>
-                 <Button className="w-full mt-4">File E-FIR</Button>
+                 <Button className="w-full mt-4 bg-teal-600 hover:bg-teal-500 text-white">File E-FIR</Button>
             </div>
           )}
           {!isLoading && !firDetails && (
-            <div className="flex flex-col h-[380px] items-center justify-center text-center p-8 rounded-lg border border-dashed">
-              <FileText className="h-10 w-10 text-muted-foreground mb-4" />
-              <p className="text-muted-foreground">E-FIR details will appear here once generated.</p>
+            <div className="flex flex-col h-[380px] items-center justify-center text-center p-8 rounded-lg border border-dashed border-teal-600">
+              <FileText className="h-10 w-10 text-teal-400 mb-4" />
+              <p className="text-teal-400">E-FIR details will appear here once generated.</p>
             </div>
           )}
         </CardContent>

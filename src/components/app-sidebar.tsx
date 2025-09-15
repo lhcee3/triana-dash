@@ -19,7 +19,7 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Badge } from './ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { Avatar, AvatarFallback } from './ui/avatar';
 
 const menuItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -37,9 +37,9 @@ export default function AppSidebar() {
     <>
       <SidebarHeader>
         <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded-lg bg-primary">
+          <div className="p-1.5 rounded-lg bg-teal-600">
             <svg
-              className="h-6 w-6 text-primary-foreground"
+              className="h-6 w-6 text-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
@@ -56,7 +56,7 @@ export default function AppSidebar() {
               <path d="M4.5 12H2" />
             </svg>
           </div>
-          <h1 className="font-headline text-xl font-semibold">Triana Guardian Eye</h1>
+          <h1 className="font-headline text-xl font-semibold text-teal-100">Triana Guardian Eye</h1>
         </div>
       </SidebarHeader>
       <SidebarMenu className="flex-1">
@@ -94,12 +94,14 @@ export default function AppSidebar() {
         </SidebarMenu>
         <div className="flex items-center gap-3 rounded-md p-2">
             <Avatar className="h-10 w-10">
-                <AvatarImage src="https://picsum.photos/seed/avatar/40/40" data-ai-hint="person portrait" />
+                <div className="w-full h-full bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                    PO
+                </div>
                 <AvatarFallback>PO</AvatarFallback>
             </Avatar>
             <div className="flex flex-col items-start">
-                <span className="font-semibold text-sm">Police Officer</span>
-                <span className="text-xs text-muted-foreground">Badge #1234</span>
+                <span className="font-semibold text-sm text-teal-100">Police Officer</span>
+                <span className="text-xs text-teal-400">Badge #1234</span>
             </div>
         </div>
       </SidebarFooter>
