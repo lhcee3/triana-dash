@@ -20,15 +20,15 @@ export default function DigitalIdPage() {
                 </div>
             </div>
 
-            <Card className="glass border-slate-600/30 backdrop-blur-sm">
+            <Card className="bg-slate-800/90 border-slate-700 backdrop-blur-sm shadow-xl">
                 <CardHeader>
-                    <CardTitle className="font-headline text-slate-100">Search Tourist</CardTitle>
-                    <CardDescription className="text-slate-400">Enter a Tourist ID, Passport Number, or Aadhaar Number to retrieve their digital ID.</CardDescription>
+                    <CardTitle className="font-headline text-white">Search Tourist</CardTitle>
+                    <CardDescription className="text-slate-300">Enter a Tourist ID, Passport Number, or Aadhaar Number to retrieve their digital ID.</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div className="flex w-full max-w-md items-center space-x-2">
-                        <Input type="text" placeholder="e.g., T-84392" className="h-10 bg-slate-800/50 border-slate-600 text-slate-100" />
-                        <Button type="submit" className="h-10 bg-blue-600 hover:bg-blue-500 text-white">
+                        <Input type="text" placeholder="e.g., T-84392" className="h-10 bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400" />
+                        <Button type="submit" className="h-10 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg">
                             <Search className="mr-2 h-4 w-4" /> Search
                         </Button>
                     </div>
@@ -37,8 +37,8 @@ export default function DigitalIdPage() {
 
             <div className="grid gap-8 md:grid-cols-3">
                 <div className="md:col-span-1">
-                    <Card className="overflow-hidden glass border-slate-600/30 backdrop-blur-sm">
-                        <div className="bg-gradient-to-br from-slate-800/40 to-slate-900/20 p-6 flex flex-col items-center text-center">
+                    <Card className="overflow-hidden bg-slate-800/90 border-slate-700 backdrop-blur-sm shadow-xl">
+                        <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/40 p-6 flex flex-col items-center text-center">
                              <div className="relative">
                                 <Avatar className="h-24 w-24 border-4 border-blue-500 shadow-lg">
                                     <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
@@ -51,115 +51,115 @@ export default function DigitalIdPage() {
                                     Verified
                                 </Badge>
                              </div>
-                            <h2 className="text-2xl font-bold font-headline mt-4 text-slate-100">Jane Doe</h2>
-                            <p className="text-sm text-slate-400">Tourist ID: T-84392</p>
+                            <h2 className="text-2xl font-bold font-headline mt-4 text-white">Jane Doe</h2>
+                            <p className="text-sm text-slate-300">Tourist ID: T-84392</p>
                         </div>
                         <CardContent className="p-6 space-y-4">
                             <div>
-                                <h3 className="text-sm font-medium text-slate-300 mb-2">Tourist Safety Score</h3>
+                                <h3 className="text-sm font-medium text-slate-200 mb-2">Tourist Safety Score</h3>
                                 <div className="flex items-center gap-3">
                                     <Progress value={85} className="h-2" />
-                                    <span className="font-bold text-slate-400 text-lg">85</span>
+                                    <span className="font-bold text-slate-100 text-lg">85</span>
                                 </div>
-                                <p className="text-xs text-slate-500 mt-1">Based on travel patterns and area sensitivity.</p>
+                                <p className="text-xs text-slate-400 mt-1">Based on travel patterns and area sensitivity.</p>
                             </div>
-                            <Separator className="bg-slate-700" />
+                            <Separator className="bg-slate-600" />
                              <div className="space-y-3 text-sm">
                                 <div className="flex items-start">
-                                    <User className="h-4 w-4 mr-3 mt-0.5 text-slate-400" />
-                                    <span className="text-slate-200">Passport: <span className="font-medium text-slate-100">L345XXX</span></span>
+                                    <User className="h-4 w-4 mr-3 mt-0.5 text-slate-300" />
+                                    <span className="text-slate-200">Passport: <span className="font-medium text-white">L345XXX</span></span>
                                 </div>
                                  <div className="flex items-start">
-                                    <Shield className="h-4 w-4 mr-3 mt-0.5 text-slate-400" />
-                                    <span className="text-slate-200">Visit Valid Until: <span className="font-medium text-slate-100">2024-08-15</span></span>
+                                    <Shield className="h-4 w-4 mr-3 mt-0.5 text-slate-300" />
+                                    <span className="text-slate-200">Visit Valid Until: <span className="font-medium text-white">2024-08-15</span></span>
                                 </div>
                                 <div className="flex items-start">
-                                    <MapPin className="h-4 w-4 mr-3 mt-0.5 text-slate-400" />
-                                    <span className="text-slate-200">Emergency Contact: <span className="font-medium text-slate-100">+91 9876543210</span></span>
+                                    <MapPin className="h-4 w-4 mr-3 mt-0.5 text-slate-300" />
+                                    <span className="text-slate-200">Emergency Contact: <span className="font-medium text-white">+91 9876543210</span></span>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
                 </div>
                 <div className="md:col-span-2">
-                    <Card className="glass border-slate-600/30 backdrop-blur-sm">
-                        <CardHeader>
-                            <CardTitle className="font-headline text-slate-100">Trip Itinerary & Status</CardTitle>
+                    <Card className="bg-slate-800/90 border-slate-700 shadow-lg">
+                        <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+                            <CardTitle className="font-headline text-white">Trip Itinerary & Status</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="p-6">
                             <Table>
                                 <TableHeader>
-                                    <TableRow className="border-slate-700">
-                                        <TableHead className="text-slate-300">Date</TableHead>
-                                        <TableHead className="text-slate-300">Location</TableHead>
-                                        <TableHead className="text-slate-300">Status</TableHead>
+                                    <TableRow className="border-slate-700 hover:bg-slate-800/50">
+                                        <TableHead className="text-slate-200 font-medium">Date</TableHead>
+                                        <TableHead className="text-slate-200 font-medium">Location</TableHead>
+                                        <TableHead className="text-slate-200 font-medium">Status</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
-                                    <TableRow className="border-slate-800 hover:bg-slate-800/30">
-                                        <TableCell className="text-slate-200">2024-07-20</TableCell>
-                                        <TableCell className="text-slate-200">Arrival at Airport</TableCell>
+                                    <TableRow className="border-slate-700 hover:bg-slate-800/30">
+                                        <TableCell className="text-slate-100">2024-07-20</TableCell>
+                                        <TableCell className="text-slate-100">Arrival at Airport</TableCell>
                                         <TableCell>
-                                            <Badge variant="default" className="bg-emerald-600 text-white"><CheckCircle className="h-3 w-3 mr-1.5" />Completed</Badge>
+                                            <Badge variant="default" className="bg-emerald-600 text-white hover:bg-emerald-700"><CheckCircle className="h-3 w-3 mr-1.5" />Completed</Badge>
                                         </TableCell>
                                     </TableRow>
-                                    <TableRow className="border-slate-800 hover:bg-slate-800/30">
-                                        <TableCell className="text-slate-200">2024-07-21</TableCell>
-                                        <TableCell className="text-slate-200">Check-in at Grand Hotel</TableCell>
+                                    <TableRow className="border-slate-700 hover:bg-slate-800/30">
+                                        <TableCell className="text-slate-100">2024-07-21</TableCell>
+                                        <TableCell className="text-slate-100">Check-in at Grand Hotel</TableCell>
                                          <TableCell>
-                                            <Badge variant="default" className="bg-emerald-600 text-white"><CheckCircle className="h-3 w-3 mr-1.5" />Completed</Badge>
+                                            <Badge variant="default" className="bg-emerald-600 text-white hover:bg-emerald-700"><CheckCircle className="h-3 w-3 mr-1.5" />Completed</Badge>
                                         </TableCell>
                                     </TableRow>
-                                     <TableRow className="bg-slate-800/40 border-slate-700">
-                                        <TableCell className="text-slate-100">2024-07-22</TableCell>
-                                        <TableCell className="text-slate-100">City Tour (Old Town)</TableCell>
+                                     <TableRow className="bg-slate-800/60 border-slate-700 hover:bg-slate-800/40">
+                                        <TableCell className="text-white font-medium">2024-07-22</TableCell>
+                                        <TableCell className="text-white font-medium">City Tour (Old Town)</TableCell>
                                          <TableCell>
-                                            <Badge variant="secondary" className="bg-amber-600 text-white"><Clock className="h-3 w-3 mr-1.5" />In Progress</Badge>
+                                            <Badge variant="secondary" className="bg-amber-600 text-white hover:bg-amber-700"><Clock className="h-3 w-3 mr-1.5" />In Progress</Badge>
                                         </TableCell>
                                     </TableRow>
-                                    <TableRow className="border-slate-800 hover:bg-slate-800/30">
-                                        <TableCell className="text-slate-200">2024-07-23</TableCell>
-                                        <TableCell className="text-slate-200">Mountain Trail Hike</TableCell>
+                                    <TableRow className="border-slate-700 hover:bg-slate-800/30">
+                                        <TableCell className="text-slate-100">2024-07-23</TableCell>
+                                        <TableCell className="text-slate-100">Mountain Trail Hike</TableCell>
                                          <TableCell>
-                                            <Badge variant="outline" className="border-blue-600 text-blue-400">Upcoming</Badge>
+                                            <Badge variant="outline" className="border-blue-600 text-blue-400 hover:bg-blue-600/10">Upcoming</Badge>
                                         </TableCell>
                                     </TableRow>
-                                     <TableRow className="border-slate-800 hover:bg-slate-800/30">
-                                        <TableCell className="text-slate-200">2024-07-24</TableCell>
-                                        <TableCell className="text-slate-200">Departure from Airport</TableCell>
+                                     <TableRow className="border-slate-700 hover:bg-slate-800/30">
+                                        <TableCell className="text-slate-100">2024-07-24</TableCell>
+                                        <TableCell className="text-slate-100">Departure from Airport</TableCell>
                                          <TableCell>
-                                            <Badge variant="outline" className="border-blue-600 text-blue-400">Upcoming</Badge>
+                                            <Badge variant="outline" className="border-blue-600 text-blue-400 hover:bg-blue-600/10">Upcoming</Badge>
                                         </TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>
                         </CardContent>
                     </Card>
-                     <Card className="mt-8 glass border-slate-600/30 backdrop-blur-sm">
-                        <CardHeader>
-                            <CardTitle className="font-headline text-slate-100">Recent Activity & Alerts</CardTitle>
+                     <Card className="mt-8 bg-slate-800/90 border-slate-700 shadow-lg">
+                        <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+                            <CardTitle className="font-headline text-white">Recent Activity & Alerts</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="p-6">
                              <div className="space-y-4">
                                 <div className="flex items-center gap-4">
                                     <div className="flex-shrink-0 bg-rose-500/20 text-rose-400 p-2 rounded-full border border-rose-500/30">
                                         <XCircle className="h-5 w-5" />
                                     </div>
                                     <div>
-                                        <p className="font-medium text-slate-100">Geo-Fence Exit Alert</p>
-                                        <p className="text-sm text-slate-400">Exited 'City Center' zone at 2024-07-21 14:30:15</p>
+                                        <p className="font-medium text-white">Geo-Fence Exit Alert</p>
+                                        <p className="text-sm text-slate-300">Exited 'City Center' zone at 2024-07-21 14:30:15</p>
                                     </div>
-                                    <Badge variant="destructive" className="ml-auto bg-rose-600 text-white">Investigating</Badge>
+                                    <Badge variant="destructive" className="ml-auto bg-rose-600 text-white hover:bg-rose-700">Investigating</Badge>
                                 </div>
                                  <div className="flex items-center gap-4">
                                     <div className="flex-shrink-0 bg-emerald-500/20 text-emerald-400 p-2 rounded-full border border-emerald-500/30">
                                         <CheckCircle className="h-5 w-5" />
                                     </div>
                                     <div>
-                                        <p className="font-medium text-slate-100">Geo-Fence Entry</p>
-                                        <p className="text-sm text-slate-400">Entered 'High-Risk Zone A' at 2024-07-21 13:10:00</p>
+                                        <p className="font-medium text-white">Geo-Fence Entry</p>
+                                        <p className="text-sm text-slate-300">Entered 'High-Risk Zone A' at 2024-07-21 13:10:00</p>
                                     </div>
-                                    <Badge variant="default" className="ml-auto bg-emerald-600 text-white">Resolved</Badge>
+                                    <Badge variant="default" className="ml-auto bg-emerald-600 text-white hover:bg-emerald-700">Resolved</Badge>
                                 </div>
                             </div>
                         </CardContent>
