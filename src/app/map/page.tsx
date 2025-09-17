@@ -82,11 +82,11 @@ export default function MapPage() {
       
       {/* Modern Header */}
       <div className="absolute top-6 left-6 z-[1000] pointer-events-none animate-slide-up">
-        <div className="glass rounded-2xl px-6 py-4">
+        <div className="bg-slate-800/90 border-slate-700 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-xl">
           <h1 className="text-2xl font-headline font-bold gradient-text">
             Guardian Eye
           </h1>
-          <p className="text-slate-400 text-sm font-medium">
+          <p className="text-slate-300 text-sm font-medium">
             Real-time safety monitoring
           </p>
         </div>
@@ -94,9 +94,9 @@ export default function MapPage() {
 
       {/* Modern Control Panel */}
       <div className="absolute top-6 right-6 w-96 z-[1000] animate-slide-up">
-        <Card className="glass rounded-2xl border-white/10 shadow-2xl backdrop-blur-xl">
+        <Card className="bg-slate-800/90 border-slate-700 rounded-2xl shadow-2xl backdrop-blur-sm">
           <CardHeader className="pb-4">
-            <CardTitle className="font-headline flex items-center gap-3 text-slate-100">
+            <CardTitle className="font-headline flex items-center gap-3 text-white">
               <div className="p-2 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600">
                 <Layers className="h-4 w-4 text-white" />
               </div>
@@ -110,7 +110,7 @@ export default function MapPage() {
                 <div className="p-1.5 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600">
                   <Search className="h-3 w-3 text-white" />
                 </div>
-                <Label className="text-slate-300 font-medium text-sm">Search Places</Label>
+                <Label className="text-slate-200 font-medium text-sm">Search Places</Label>
               </div>
               <div className="flex gap-2">
                 <div className="relative flex-1">
@@ -119,20 +119,20 @@ export default function MapPage() {
                     value={placeSearchQuery}
                     onChange={(e) => setPlaceSearchQuery(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSearchPlace()}
-                    className="bg-white/5 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
+                    className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
                     disabled={isSearchingPlace}
                   />
                 </div>
                 <Button 
                   onClick={handleSearchPlace}
                   disabled={isSearchingPlace || !placeSearchQuery.trim()}
-                  className="btn-gradient rounded-xl px-4 font-medium"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl px-4 font-medium text-white shadow-lg"
                 >
                   {isSearchingPlace ? 'Searching...' : 'Go'}
                 </Button>
               </div>
               {searchResult && (
-                <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 animate-scale-in">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 border border-emerald-500/30 animate-scale-in">
                   <p className="text-sm text-emerald-300 font-medium">
                     📍 {searchResult.display_name.split(',').slice(0, 3).join(', ')}
                   </p>
@@ -140,7 +140,7 @@ export default function MapPage() {
               )}
             </div>
             
-            <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
             
             {/* Tourist Filter Section */}
             <div className="space-y-3">
@@ -148,14 +148,14 @@ export default function MapPage() {
                 <div className="p-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600">
                   <User className="h-3 w-3 text-white" />
                 </div>
-                <Label className="text-slate-300 font-medium text-sm">Tourist Filter</Label>
+                <Label className="text-slate-200 font-medium text-sm">Tourist Filter</Label>
               </div>
               <div className="relative">
                 <Input
                   placeholder="Filter by tourist name or location..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-white/5 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl pl-4 focus:ring-2 focus:ring-emerald-500/50 focus:border-transparent transition-all"
+                  className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 rounded-xl pl-4 focus:ring-2 focus:ring-emerald-500/50 focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -168,66 +168,66 @@ export default function MapPage() {
                 <div className="p-1.5 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600">
                   <Layers className="h-3 w-3 text-white" />
                 </div>
-                <Label className="text-slate-300 font-medium text-sm">Map Layers</Label>
+                <Label className="text-slate-200 font-medium text-sm">Map Layers</Label>
               </div>
               
               <div className="grid gap-3">
                 {/* Tourist Layer */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-700/30 border border-slate-600 hover:bg-slate-700/50 transition-all group">
                   <div className="flex items-center gap-3">
                     <User className="h-4 w-4 text-blue-400" />
-                    <span className="text-slate-200 font-medium">Tourists</span>
+                    <span className="text-white font-medium">Tourists</span>
                   </div>
                   <div className="flex items-center gap-2">
                     {showTourists && <div className="w-2 h-2 rounded-full bg-emerald-500"></div>}
                     <Checkbox
                       checked={showTourists}
                       onCheckedChange={(checked) => setShowTourists(checked === true)}
-                      className="border-white/30 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
+                      className="border-slate-500 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
                     />
                   </div>
                 </div>
 
                 {/* Risk Zones Layer */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-700/30 border border-slate-600 hover:bg-slate-700/50 transition-all group">
                   <div className="flex items-center gap-3">
                     <Siren className="h-4 w-4 text-rose-400" />
-                    <span className="text-slate-200 font-medium">Risk Zones</span>
+                    <span className="text-white font-medium">Risk Zones</span>
                   </div>
                   <div className="flex items-center gap-2">
                     {showRiskZones && <div className="w-2 h-2 rounded-full bg-emerald-500"></div>}
                     <Checkbox
                       checked={showRiskZones}
                       onCheckedChange={(checked) => setShowRiskZones(checked === true)}
-                      className="border-white/30 data-[state=checked]:bg-rose-500 data-[state=checked]:border-rose-500"
+                      className="border-slate-500 data-[state=checked]:bg-rose-500 data-[state=checked]:border-rose-500"
                     />
                   </div>
                 </div>
 
                 {/* CCTV Layer */}
-                <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-700/30 border border-slate-600 hover:bg-slate-700/50 transition-all group">
                   <div className="flex items-center gap-3">
                     <Video className="h-4 w-4 text-indigo-400" />
-                    <span className="text-slate-200 font-medium">CCTV Cameras</span>
+                    <span className="text-white font-medium">CCTV Cameras</span>
                   </div>
                   <div className="flex items-center gap-2">
                     {showCCTV && <div className="w-2 h-2 rounded-full bg-emerald-500"></div>}
                     <Checkbox
                       checked={showCCTV}
                       onCheckedChange={(checked) => setShowCCTV(checked === true)}
-                      className="border-white/30 data-[state=checked]:bg-indigo-500 data-[state=checked]:border-indigo-500"
+                      className="border-slate-500 data-[state=checked]:bg-indigo-500 data-[state=checked]:border-indigo-500"
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
 
             {/* Apply Button */}
             <Button 
               onClick={handleApplyFilters}
-              className="w-full btn-gradient rounded-xl py-3 font-medium text-white shadow-lg"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl py-3 font-medium text-white shadow-lg"
             >
               Apply Filters
             </Button>
