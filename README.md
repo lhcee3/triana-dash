@@ -1,6 +1,13 @@
 # Triana Guardian Eye 👁️‍🗨️
 **Advanced AI-Powered Tourist Safety Platform**
 
+<img width="1865" height="963" alt="Screenshot 2025-09-18 000656" src="https://github.com/user-attachments/assets/b6ca60a2-2e60-4fc0-bc36-4b4fa381a015" />
+<img width="1855" height="970" alt="Screenshot 2025-09-18 000648" src="https://github.com/user-attachments/assets/451c8b1a-0231-42f7-af33-12a80bfbc82a" />
+<img width="1859" height="967" alt="Screenshot 2025-09-18 000731" src="https://github.com/user-attachments/assets/401e7a6b-0fee-4b09-b923-6e3068c7e9ad" />
+<img width="1859" height="952" alt="Screenshot 2025-09-18 000724" src="https://github.com/user-attachments/assets/a13a5090-8e21-4e68-8a52-1ad719b585a5" />
+<img width="1856" height="975" alt="Screenshot 2025-09-18 000715" src="https://github.com/user-attachments/assets/7db0b98f-03e8-4932-b69f-d634ed684903" />
+<img width="1858" height="971" alt="Screenshot 2025-09-18 000707" src="https://github.com/user-attachments/assets/a067f4bc-2c56-4af0-9623-ebdd040c4239" />
+
 A comprehensive tourist safety monitoring and incident response system designed specifically for Triana, featuring real-time tracking, automated E-FIR generation, and intelligent alert management.
 
 ## 🌟 Features
