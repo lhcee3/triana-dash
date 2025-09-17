@@ -6,6 +6,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarFooter,
+  SidebarContent,
 } from '@/components/ui/sidebar';
 import {
   LayoutDashboard,
@@ -15,96 +16,120 @@ import {
   History,
   Settings,
   Contact,
+  Shield,
+  Users,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Badge } from './ui/badge';
 import { Avatar, AvatarFallback } from './ui/avatar';
+import { Separator } from './ui/separator';
 
 const menuItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/map', label: 'Interactive Map', icon: Map },
-  { href: '/digital-id', label: 'Digital ID', icon: Contact },
-  { href: '/e-fir', label: 'E-FIR Generation', icon: FileText },
-  { href: '/incidents', label: 'Incident Reporting', icon: ShieldAlert },
-  { href: '/alerts', label: 'Alert History', icon: History, badge: '3' },
+  { href: '/', label: 'Dashboard', icon: LayoutDashboard, gradient: 'from-blue-500 to-blue-600' },
+  { href: '/map', label: 'Interactive Map', icon: Map, gradient: 'from-emerald-500 to-emerald-600' },
+  { href: '/digital-id', label: 'Digital ID', icon: Contact, gradient: 'from-indigo-500 to-indigo-600' },
+  { href: '/e-fir', label: 'E-FIR Generation', icon: FileText, gradient: 'from-amber-500 to-amber-600' },
+  { href: '/incidents', label: 'Incident Reporting', icon: ShieldAlert, gradient: 'from-rose-500 to-rose-600' },
+  { href: '/alerts', label: 'Alert History', icon: History, badge: '3', gradient: 'from-yellow-500 to-yellow-600' },
 ];
 
 export default function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <>
-      <SidebarHeader>
-        <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded-lg bg-teal-600">
-            <svg
-              className="h-6 w-6 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10z" />
-              <path d="M12 16.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5-4.5z" />
-              <path d="M12 2v2.5" />
-              <path d="M12 19.5V22" />
-              <path d="M22 12h-2.5" />
-              <path d="M4.5 12H2" />
-            </svg>
+    <div className="flex flex-col h-full">
+      <SidebarHeader className="p-6">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-blue-600 shadow-lg">
+            <Shield className="h-6 w-6 text-white" />
           </div>
-          <h1 className="font-headline text-xl font-semibold text-teal-100">Triana Guardian Eye</h1>
+          <div className="flex flex-col">
+            <h1 className="font-headline text-lg font-bold gradient-text">
+              Guardian Eye
+            </h1>
+            <p className="text-xs text-gray-400 font-medium">
+              Tourist Safety Platform
+            </p>
+          </div>
         </div>
       </SidebarHeader>
-      <SidebarMenu className="flex-1">
-        {menuItems.map((item) => (
-          <SidebarMenuItem key={item.label}>
-            <SidebarMenuButton
-              asChild
-              isActive={pathname === item.href}
-              className="w-full justify-start"
-              tooltip={item.label}
-            >
-              <Link href={item.href}>
-                <item.icon className="h-5 w-5" />
-                <span>{item.label}</span>
-                {item.badge && (
-                  <Badge variant="secondary" className="ml-auto">
-                    {item.badge}
-                  </Badge>
-                )}
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        ))}
-      </SidebarMenu>
+      <SidebarContent className="flex-1 p-4">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">
+            Main Navigation
+          </p>
+          
+          <SidebarMenu>
+            {menuItems.map((item) => {
+              const isActive = pathname === item.href;
+              const Icon = item.icon;
+              
+              return (
+                <SidebarMenuItem key={item.href} className="mb-1">
+                  <SidebarMenuButton
+                    asChild
+                    className={`
+                      group relative rounded-xl transition-all duration-300 hover:scale-[1.02]
+                      ${isActive 
+                        ? 'bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg' 
+                        : 'hover:bg-white/5'
+                      }
+                    `}
+                  >
+                    <Link href={item.href} className="flex items-center gap-3 p-3">
+                      <div className={`
+                        p-2 rounded-lg bg-gradient-to-r ${item.gradient} shadow-md
+                        ${isActive ? 'shadow-lg' : 'group-hover:scale-110'}
+                        transition-all duration-300
+                      `}>
+                        <Icon className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="flex items-center justify-between flex-1">
+                        <span className={`
+                          font-medium transition-colors
+                          ${isActive ? 'text-white' : 'text-gray-300 group-hover:text-gray-100'}
+                        `}>
+                          {item.label}
+                        </span>
+                        {item.badge && (
+                          <Badge className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs px-2 py-0.5 shadow-md">
+                            {item.badge}
+                          </Badge>
+                        )}
+                      </div>
+                      {isActive && (
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-l-full" />
+                      )}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              );
+            })}
+          </SidebarMenu>
+        </div>
+      </SidebarContent>
       <SidebarFooter className="mt-auto">
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton asChild className="w-full justify-start" tooltip="Settings">
-              <Link href="#">
-                <Settings className="h-5 w-5" />
-                <span>Settings</span>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-        <div className="flex items-center gap-3 rounded-md p-2">
-            <Avatar className="h-10 w-10">
-                <div className="w-full h-full bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                    PO
-                </div>
-                <AvatarFallback>PO</AvatarFallback>
+        <Separator className="bg-white/10 mb-4" />
+        <div className="glass rounded-2xl p-4 card-hover">
+          <div className="flex items-center gap-3">
+            <Avatar className="h-12 w-12 shadow-lg">
+              <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                PO
+              </div>
+              <AvatarFallback>PO</AvatarFallback>
             </Avatar>
-            <div className="flex flex-col items-start">
-                <span className="font-semibold text-sm text-teal-100">Police Officer</span>
-                <span className="text-xs text-teal-400">Badge #1234</span>
+            <div className="flex flex-col">
+              <span className="font-semibold text-sm text-slate-100">
+                Police Officer
+              </span>
+              <span className="text-xs text-slate-300">
+                Police Officer
+              </span>
             </div>
+          </div>
         </div>
       </SidebarFooter>
-    </>
+    </div>
   );
 }
