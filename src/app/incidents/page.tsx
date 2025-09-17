@@ -25,7 +25,7 @@ export default function IncidentsPage() {
           <h1 className="text-3xl font-headline font-bold tracking-tight text-slate-100">Incident Management</h1>
           <p className="text-slate-400">Report new incidents and track existing ones.</p>
         </div>
-        <Button className="bg-blue-600 hover:bg-blue-500 text-white">
+        <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-md transition-all duration-200">
           <PlusCircle className="mr-2 h-4 w-4" />
           Report New Incident
         </Button>
@@ -33,34 +33,34 @@ export default function IncidentsPage() {
 
       <div className="grid gap-8 md:grid-cols-3">
         <div className="md:col-span-2">
-          <Card className="glass border-slate-600/30 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="font-headline text-slate-100">All Incidents</CardTitle>
-              <CardDescription className="text-slate-400">A log of all reported incidents.</CardDescription>
+          <Card className="bg-slate-800/90 border-slate-700 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+              <CardTitle className="font-headline text-white">All Incidents</CardTitle>
+              <CardDescription className="text-slate-300">A log of all reported incidents.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-6">
                 <Table>
                     <TableHeader>
-                        <TableRow className="border-slate-700">
-                            <TableHead className="text-slate-300">ID</TableHead>
-                            <TableHead className="text-slate-300">Type</TableHead>
-                            <TableHead className="text-slate-300">Location</TableHead>
-                            <TableHead className="text-slate-300">Status</TableHead>
-                            <TableHead className="text-slate-300"><span className="sr-only">Actions</span></TableHead>
+                        <TableRow className="border-slate-700 hover:bg-slate-800/50">
+                            <TableHead className="text-slate-200 font-medium">ID</TableHead>
+                            <TableHead className="text-slate-200 font-medium">Type</TableHead>
+                            <TableHead className="text-slate-200 font-medium">Location</TableHead>
+                            <TableHead className="text-slate-200 font-medium">Status</TableHead>
+                            <TableHead className="text-slate-200 font-medium"><span className="sr-only">Actions</span></TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {incidents.map((incident) => (
-                            <TableRow key={incident.id} className="border-slate-800 hover:bg-slate-800/30">
-                                <TableCell className="font-medium text-slate-100">{incident.id}</TableCell>
-                                <TableCell className="text-slate-200">{incident.type}</TableCell>
-                                <TableCell className="text-slate-200">{incident.location}</TableCell>
+                            <TableRow key={incident.id} className="border-slate-700 hover:bg-slate-800/30">
+                                <TableCell className="font-medium text-white">{incident.id}</TableCell>
+                                <TableCell className="text-slate-100">{incident.type}</TableCell>
+                                <TableCell className="text-slate-100">{incident.location}</TableCell>
                                 <TableCell>
                                     <Badge variant={incident.status === 'Urgent' ? 'destructive' : incident.status === 'Active' ? 'secondary' : 'default'}
                                            className={
-                                               incident.status === 'Urgent' ? 'bg-rose-600 text-white' :
-                                               incident.status === 'Active' ? 'bg-amber-600 text-white' :
-                                               'bg-emerald-600 text-white'
+                                               incident.status === 'Urgent' ? 'bg-rose-600 text-white hover:bg-rose-700' :
+                                               incident.status === 'Active' ? 'bg-amber-600 text-white hover:bg-amber-700' :
+                                               'bg-emerald-600 text-white hover:bg-emerald-700'
                                            }>
                                         {incident.status}
                                     </Badge>
@@ -68,15 +68,15 @@ export default function IncidentsPage() {
                                 <TableCell>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" className="h-8 w-8 p-0 text-slate-300 hover:text-slate-100 hover:bg-slate-800">
+                                            <Button variant="ghost" className="h-8 w-8 p-0 text-slate-300 hover:text-white hover:bg-slate-700">
                                                 <span className="sr-only">Open menu</span>
                                                 <MoreHorizontal className="h-4 w-4" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="bg-slate-900 border-slate-600">
-                                            <DropdownMenuItem className="text-slate-100 hover:bg-slate-800">View Details</DropdownMenuItem>
-                                            <DropdownMenuItem className="text-slate-100 hover:bg-slate-800">Assign Officer</DropdownMenuItem>
-                                            <DropdownMenuItem className="text-slate-100 hover:bg-slate-800">Update Status</DropdownMenuItem>
+                                        <DropdownMenuContent align="end" className="bg-slate-800 border-slate-600 shadow-lg">
+                                            <DropdownMenuItem className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">View Details</DropdownMenuItem>
+                                            <DropdownMenuItem className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Assign Officer</DropdownMenuItem>
+                                            <DropdownMenuItem className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Update Status</DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>
@@ -88,50 +88,50 @@ export default function IncidentsPage() {
           </Card>
         </div>
         <div className="md:col-span-1">
-          <Card className="glass border-slate-600/30 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="font-headline text-slate-100">Report an Incident</CardTitle>
-              <CardDescription className="text-slate-400">Fill out the form below to report a new incident.</CardDescription>
+          <Card className="bg-slate-800/90 border-slate-700 shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+              <CardTitle className="font-headline text-white">Report an Incident</CardTitle>
+              <CardDescription className="text-slate-300">Fill out the form below to report a new incident.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="p-6 space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="type" className="text-slate-300">Incident Type</Label>
+                <Label htmlFor="type" className="text-slate-200 font-medium">Incident Type</Label>
                 <Select>
-                  <SelectTrigger className="bg-slate-800/50 border-slate-600 text-slate-100">
+                  <SelectTrigger className="bg-slate-700/50 border-slate-600 text-white focus:border-blue-500 focus:ring-blue-500/20">
                     <SelectValue placeholder="Select type" />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-900 border-slate-600">
-                    <SelectItem value="missing" className="text-slate-100">Missing Person</SelectItem>
-                    <SelectItem value="theft" className="text-slate-100">Theft</SelectItem>
-                    <SelectItem value="medical" className="text-slate-100">Medical Emergency</SelectItem>
-                    <SelectItem value="suspicious" className="text-slate-100">Suspicious Activity</SelectItem>
-                    <SelectItem value="other" className="text-slate-100">Other</SelectItem>
+                  <SelectContent className="bg-slate-800 border-slate-600 shadow-lg">
+                    <SelectItem value="missing" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Missing Person</SelectItem>
+                    <SelectItem value="theft" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Theft</SelectItem>
+                    <SelectItem value="medical" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Medical Emergency</SelectItem>
+                    <SelectItem value="suspicious" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Suspicious Activity</SelectItem>
+                    <SelectItem value="other" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="location" className="text-slate-300">Location</Label>
-                <Input id="location" placeholder="e.g., City Center" className="bg-slate-800/50 border-slate-600 text-slate-100" />
+                <Label htmlFor="location" className="text-slate-200 font-medium">Location</Label>
+                <Input id="location" placeholder="e.g., City Center" className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="severity" className="text-slate-300">Severity</Label>
+                <Label htmlFor="severity" className="text-slate-200 font-medium">Severity</Label>
                 <Select>
-                  <SelectTrigger className="bg-slate-800/50 border-slate-600 text-slate-100">
+                  <SelectTrigger className="bg-slate-700/50 border-slate-600 text-white focus:border-blue-500 focus:ring-blue-500/20">
                     <SelectValue placeholder="Select severity" />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-900 border-slate-600">
-                    <SelectItem value="low" className="text-slate-100">Low</SelectItem>
-                    <SelectItem value="medium" className="text-slate-100">Medium</SelectItem>
-                    <SelectItem value="high" className="text-slate-100">High</SelectItem>
-                    <SelectItem value="urgent" className="text-slate-100">Urgent</SelectItem>
+                  <SelectContent className="bg-slate-800 border-slate-600 shadow-lg">
+                    <SelectItem value="low" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Low</SelectItem>
+                    <SelectItem value="medium" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Medium</SelectItem>
+                    <SelectItem value="high" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">High</SelectItem>
+                    <SelectItem value="urgent" className="text-slate-100 hover:bg-slate-700 focus:bg-slate-700">Urgent</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description" className="text-slate-300">Description</Label>
-                <Textarea id="description" placeholder="Provide details about the incident..." className="bg-slate-800/50 border-slate-600 text-slate-100" />
+                <Label htmlFor="description" className="text-slate-200 font-medium">Description</Label>
+                <Textarea id="description" placeholder="Provide details about the incident..." className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20" />
               </div>
-              <Button className="w-full bg-blue-600 hover:bg-blue-500 text-white">Submit Report</Button>
+              <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-md transition-all duration-200">Submit Report</Button>
             </CardContent>
           </Card>
         </div>
