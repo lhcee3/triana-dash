@@ -40,19 +40,19 @@ export default function AppSidebar() {
   return (
     <div className="flex flex-col h-full">
       <SidebarHeader className="p-6">
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer">
           <div className="p-2.5 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-blue-600 shadow-lg">
             <Shield className="h-6 w-6 text-white" />
           </div>
-          <div className="flex flex-col">
-            <h1 className="font-headline text-lg font-bold gradient-text">
-              Guardian Eye
+          <div className="flex flex-col min-w-0 flex-1">
+            <h1 className="font-headline text-base font-bold gradient-text whitespace-nowrap">
+              Triana Guardian Eye
             </h1>
             <p className="text-xs text-gray-400 font-medium">
               Tourist Safety Platform
             </p>
           </div>
-        </div>
+        </Link>
       </SidebarHeader>
       <SidebarContent className="flex-1 p-4">
         <div className="space-y-2">
@@ -109,27 +109,6 @@ export default function AppSidebar() {
           </SidebarMenu>
         </div>
       </SidebarContent>
-      <SidebarFooter className="mt-auto">
-        <Separator className="bg-white/10 mb-4" />
-        <div className="glass rounded-2xl p-4 card-hover">
-          <div className="flex items-center gap-3">
-            <Avatar className="h-12 w-12 shadow-lg">
-              <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                PO
-              </div>
-              <AvatarFallback>PO</AvatarFallback>
-            </Avatar>
-            <div className="flex flex-col">
-              <span className="font-semibold text-sm text-slate-100">
-                Police Officer
-              </span>
-              <span className="text-xs text-slate-300">
-                Police Officer
-              </span>
-            </div>
-          </div>
-        </div>
-      </SidebarFooter>
     </div>
   );
 }

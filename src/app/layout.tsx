@@ -8,8 +8,8 @@ import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Guardian Eye - Tourist Safety Platform',
-  description: 'Advanced AI-powered tourist safety monitoring and incident response system',
+  title: 'Triana Guardian Eye - Tourist Safety Platform',
+  description: 'Advanced AI-powered tourist safety monitoring and incident response system for Triana',
 };
 
 const fontSans = Inter({
@@ -36,12 +36,6 @@ export default function RootLayout({
               <AppSidebar />
             </Sidebar>
             <SidebarInset className="flex-1 bg-transparent">
-              {/* Top Right Badge */}
-              <div className="fixed top-4 right-4 z-50">
-                <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1.5 shadow-lg border border-white/20">
-                  Badge #1234 • Active
-                </Badge>
-              </div>
               <main className="animate-fade-in">
                 {children}
               </main>

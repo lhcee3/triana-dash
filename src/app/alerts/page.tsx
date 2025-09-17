@@ -24,33 +24,37 @@ export default function AlertsPage() {
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="border-slate-600 text-slate-200 hover:bg-slate-800/50">
+            <Button variant="outline" className="border-slate-600 text-slate-200 hover:bg-slate-700 bg-slate-800/50">
               <ListFilter className="mr-2 h-4 w-4" />
               Filter Alerts
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56 bg-slate-900/95 border-slate-600 backdrop-blur-sm">
+          <DropdownMenuContent align="end" className="w-56 bg-slate-800 border-slate-600 shadow-lg">
             <DropdownMenuLabel className="text-slate-200">Filter by Status</DropdownMenuLabel>
-            <DropdownMenuSeparator className="bg-slate-700" />
-            <DropdownMenuCheckboxItem checked className="text-slate-100 focus:bg-slate-800/50">Urgent</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem checked className="text-slate-100 focus:bg-slate-800/50">Investigating</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem className="text-slate-100 focus:bg-slate-800/50">Acknowledged</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem className="text-slate-100 focus:bg-slate-800/50">Resolved</DropdownMenuCheckboxItem>
+            <DropdownMenuSeparator className="bg-slate-600" />
+            <DropdownMenuCheckboxItem checked className="text-slate-100 focus:bg-slate-700 hover:bg-slate-700">Urgent</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem checked className="text-slate-100 focus:bg-slate-700 hover:bg-slate-700">Investigating</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem className="text-slate-100 focus:bg-slate-700 hover:bg-slate-700">Acknowledged</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem className="text-slate-100 focus:bg-slate-700 hover:bg-slate-700">Resolved</DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
 
-      <Card className="glass border-slate-600/30 backdrop-blur-sm">
-        <CardContent className="pt-6">
+      <Card className="bg-slate-800/90 border-slate-700 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+          <CardTitle className="font-headline text-white">System Alerts</CardTitle>
+          <CardDescription className="text-slate-300">Real-time monitoring and alert management for all tourists.</CardDescription>
+        </CardHeader>
+        <CardContent className="p-6">
             <Table>
                 <TableHeader>
-                    <TableRow className="border-slate-700">
-                        <TableHead className="text-slate-300">Alert ID</TableHead>
-                        <TableHead className="text-slate-300">Type</TableHead>
-                        <TableHead className="text-slate-300">Tourist ID</TableHead>
-                        <TableHead className="text-slate-300">Location</TableHead>
-                        <TableHead className="text-slate-300">Timestamp</TableHead>
-                        <TableHead className="text-slate-300">Status</TableHead>
+                    <TableRow className="border-slate-700 hover:bg-slate-800/50">
+                        <TableHead className="text-slate-200 font-medium">Alert ID</TableHead>
+                        <TableHead className="text-slate-200 font-medium">Type</TableHead>
+                        <TableHead className="text-slate-200 font-medium">Tourist ID</TableHead>
+                        <TableHead className="text-slate-200 font-medium">Location</TableHead>
+                        <TableHead className="text-slate-200 font-medium">Timestamp</TableHead>
+                        <TableHead className="text-slate-200 font-medium">Status</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -58,22 +62,22 @@ export default function AlertsPage() {
                         <TableRow 
                             key={alert.id} 
                             className={alert.status === 'Urgent' 
-                                ? 'bg-rose-950/30 hover:bg-rose-950/50 border-rose-700' 
-                                : 'border-slate-800 hover:bg-slate-800/30'
+                                ? 'bg-rose-950/30 hover:bg-rose-950/40 border-rose-800/50' 
+                                : 'border-slate-700 hover:bg-slate-800/30'
                             }
                         >
-                            <TableCell className="font-medium text-slate-100">{alert.id}</TableCell>
-                            <TableCell className="text-slate-200">{alert.type}</TableCell>
-                            <TableCell className="text-slate-200">{alert.touristId}</TableCell>
-                            <TableCell className="text-slate-200">{alert.location}</TableCell>
-                            <TableCell className="text-slate-200">{alert.timestamp}</TableCell>
+                            <TableCell className="font-medium text-white">{alert.id}</TableCell>
+                            <TableCell className="text-slate-100">{alert.type}</TableCell>
+                            <TableCell className="text-slate-100">{alert.touristId}</TableCell>
+                            <TableCell className="text-slate-100">{alert.location}</TableCell>
+                            <TableCell className="text-slate-100">{alert.timestamp}</TableCell>
                             <TableCell>
                                 <Badge variant={alert.status === 'Urgent' ? 'destructive' : alert.status === 'Resolved' ? 'default' : 'secondary'}
                                        className={
-                                           alert.status === 'Urgent' ? 'bg-rose-600 text-white' :
-                                           alert.status === 'Resolved' ? 'bg-emerald-600 text-white' :
-                                           alert.status === 'Investigating' ? 'bg-amber-600 text-white' :
-                                           'bg-blue-600 text-white'
+                                           alert.status === 'Urgent' ? 'bg-rose-600 text-white hover:bg-rose-700' :
+                                           alert.status === 'Resolved' ? 'bg-emerald-600 text-white hover:bg-emerald-700' :
+                                           alert.status === 'Investigating' ? 'bg-amber-600 text-white hover:bg-amber-700' :
+                                           'bg-blue-600 text-white hover:bg-blue-700'
                                        }>
                                     {alert.status}
                                 </Badge>

@@ -115,41 +115,6 @@ export default function Home() {
               <div className="absolute bottom-24 left-32 w-20 h-20 bg-orange-500/40 rounded-full blur-lg animate-pulse delay-500"></div>
               <div className="absolute top-40 left-1/2 w-14 h-14 bg-red-600/70 rounded-full blur-md animate-pulse delay-1000"></div>
               <div className="absolute bottom-32 right-28 w-10 h-10 bg-yellow-400/45 rounded-full blur-sm"></div>
-
-              <Card className="absolute top-4 right-4 w-72 shadow-2xl bg-slate-900/90 border-slate-600 backdrop-blur-sm">
-                <CardHeader className="p-4">
-                  <CardTitle className="font-headline text-base flex items-center gap-2 text-white">
-                    <Layers className="text-blue-400" />
-                    Map Layers
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 pt-0 space-y-3">
-                  <div className="space-y-2">
-                    <Label className="text-xs text-slate-300">Overlays</Label>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="tourists" defaultChecked />
-                      <User className="h-4 w-4 text-blue-400" />
-                      <label htmlFor="tourists" className="text-sm font-medium leading-none text-slate-100">
-                        Tourist Locations
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="risks" defaultChecked />
-                      <Siren className="h-4 w-4 text-rose-400" />
-                      <label htmlFor="risks" className="text-sm font-medium leading-none text-slate-100">
-                        High-Risk Zones
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="cameras" />
-                      <Video className="h-4 w-4 text-indigo-400" />
-                      <label htmlFor="cameras" className="text-sm font-medium leading-none text-slate-100">
-                        CCTV Cameras
-                      </label>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </CardContent>
         </Card>
