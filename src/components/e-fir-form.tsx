@@ -54,14 +54,14 @@ export default function EFIRForm() {
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
-      <Card className="bg-black/90 border-teal-600 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="font-headline text-teal-100">Incident Report</CardTitle>
-          <CardDescription className="text-teal-400">
+      <Card className="bg-slate-800/90 border-slate-700 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+          <CardTitle className="font-headline text-white">Incident Report</CardTitle>
+          <CardDescription className="text-slate-300">
             Paste the initial report text from any source. The AI will extract the relevant information.
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -69,11 +69,11 @@ export default function EFIRForm() {
                 name="reportText"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-teal-200">Report Text</FormLabel>
+                    <FormLabel className="text-slate-200 font-medium">Report Text</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="e.g., 'My son, John Doe, 24 years old, went missing yesterday from our home at 123 Main St. He was last seen wearing a blue jacket. He has a scar on his left cheek. My contact is 555-1234...'"
-                        className="min-h-[300px] resize-y bg-teal-950/50 border-teal-600 text-teal-100"
+                        className="min-h-[300px] resize-y bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500/20"
                         {...field}
                       />
                     </FormControl>
@@ -81,7 +81,11 @@ export default function EFIRForm() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading} className="bg-teal-600 hover:bg-teal-500 text-white">
+              <Button 
+                type="submit" 
+                disabled={isLoading} 
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-md transition-all duration-200"
+              >
                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Generate E-FIR
               </Button>
@@ -90,56 +94,56 @@ export default function EFIRForm() {
         </CardContent>
       </Card>
       
-      <Card className="bg-black/90 border-teal-600 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="font-headline text-teal-100">Generated E-FIR Details</CardTitle>
-          <CardDescription className="text-teal-400">
+      <Card className="bg-slate-800/90 border-slate-700 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-t-lg border-b border-slate-600">
+          <CardTitle className="font-headline text-white">Generated E-FIR Details</CardTitle>
+          <CardDescription className="text-slate-300">
             Review the automatically generated First Information Report.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">{/* Content continues below */}
+        <CardContent className="p-6 space-y-4">{/* Content continues below */}
           {isLoading && (
             <div className="flex h-[380px] items-center justify-center p-8">
-              <Loader2 className="h-8 w-8 animate-spin text-teal-400" />
+              <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
             </div>
           )}
           {firDetails && (
             <div className="space-y-3 text-sm">
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-teal-300">Missing Person:</span>
-                    <span className="col-span-2 text-teal-100">{firDetails.missingPersonName}</span>
+                    <span className="font-semibold text-slate-200">Missing Person:</span>
+                    <span className="col-span-2 text-white">{firDetails.missingPersonName}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-teal-300">Age:</span>
-                    <span className="col-span-2 text-teal-100">{firDetails.age}</span>
+                    <span className="font-semibold text-slate-200">Age:</span>
+                    <span className="col-span-2 text-white">{firDetails.age}</span>
                 </div>
                  <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-teal-300">Gender:</span>
-                    <span className="col-span-2 text-teal-100">{firDetails.gender}</span>
+                    <span className="font-semibold text-slate-200">Gender:</span>
+                    <span className="col-span-2 text-white">{firDetails.gender}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-teal-300">Last Seen Address:</span>
-                    <span className="col-span-2 text-teal-100">{firDetails.addressLastSeen}</span>
+                    <span className="font-semibold text-slate-200">Last Seen Address:</span>
+                    <span className="col-span-2 text-white">{firDetails.addressLastSeen}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-teal-300">Identifying Marks:</span>
-                    <span className="col-span-2 text-teal-100">{firDetails.identifyingMarks}</span>
+                    <span className="font-semibold text-slate-200">Identifying Marks:</span>
+                    <span className="col-span-2 text-white">{firDetails.identifyingMarks}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 items-center">
-                    <span className="font-semibold text-teal-300">Contact Info:</span>
-                    <span className="col-span-2 text-teal-100">{firDetails.contactInformation}</span>
+                    <span className="font-semibold text-slate-200">Contact Info:</span>
+                    <span className="col-span-2 text-white">{firDetails.contactInformation}</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                    <span className="font-semibold text-teal-300">Additional Details:</span>
-                    <p className="col-span-2 leading-relaxed text-teal-100">{firDetails.additionalDetails}</p>
+                    <span className="font-semibold text-slate-200">Additional Details:</span>
+                    <p className="col-span-2 leading-relaxed text-white">{firDetails.additionalDetails}</p>
                 </div>
-                 <Button className="w-full mt-4 bg-teal-600 hover:bg-teal-500 text-white">File E-FIR</Button>
+                 <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-md transition-all duration-200">File E-FIR</Button>
             </div>
           )}
           {!isLoading && !firDetails && (
-            <div className="flex flex-col h-[380px] items-center justify-center text-center p-8 rounded-lg border border-dashed border-teal-600">
-              <FileText className="h-10 w-10 text-teal-400 mb-4" />
-              <p className="text-teal-400">E-FIR details will appear here once generated.</p>
+            <div className="flex flex-col h-[380px] items-center justify-center text-center p-8 rounded-lg border border-dashed border-slate-600">
+              <FileText className="h-10 w-10 text-slate-400 mb-4" />
+              <p className="text-slate-300">E-FIR details will appear here once generated.</p>
             </div>
           )}
         </CardContent>
